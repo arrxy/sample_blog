@@ -1,0 +1,15 @@
+<h1>Users</h1>
+
+<% @users.each do |it|%>
+  <p>
+    <li>
+      <%=link_to it.username, it %><br>
+      <%="Articles published: #{it.articles.length}" %>
+    </li>
+  </p>
+
+
+<%end%>
+<%= link_to "New Article", new_article_path %>
+<br><br>
+<%= link_to "Sign up!", signup_path %>
