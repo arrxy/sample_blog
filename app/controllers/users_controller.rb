@@ -25,14 +25,16 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to articles_path
+      redirect_to @user
     end
   end
 
   def show
     @user = User.find(params[:id])
   end
+
   private
+
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
