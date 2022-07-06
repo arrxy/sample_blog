@@ -3,7 +3,7 @@
 <% @users.each do |it|%>
   <p>
     <li>
-      <%=link_to it.username, it %><br>
+      <%=it.username %><br>
       <%="Articles published: #{it.articles.length}" %>
     </li>
   </p>
