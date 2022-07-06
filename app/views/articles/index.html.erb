@@ -1,13 +1,15 @@
 <h1>Articles</h1>
 <h2> <%= link_to "Users", users_path %></h2>
-
+<p><%= will_paginate @article %><p>
 <%@article.each do |it|%>
     <li>
     <%=link_to it.title, it%>
       user: <%= it.user.username %>
     </li>
-    
+
 <%end%>
+<br>
+
 <%= link_to "New Article", new_article_path %>
 <br>
 <%= link_to "Sign up!", signup_path %>
