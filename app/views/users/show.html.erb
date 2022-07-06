@@ -1,5 +1,9 @@
 <h1>User Details</h1>
 <p><%= @user.username %></p>
 <p><%= @user.email%></p>
-
-<p><%= link_to "Edit user", edit_user_path %></p>
+<% @user.articles.each do |item| %>
+    <%= link_to item.title, item %>
+  <%end %>
+<p><%= link_to "Edit user", edit_user_path %></p> <br>
+<%= link_to "Home", root_path %>
+<p><%= link_to "Logout", logout_path, method: :delete %></p>

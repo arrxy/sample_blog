@@ -1,4 +1,7 @@
 <h1>Articles</h1>
+<%if logged_in? %>
+  <h2><%= "Hello " %><%=link_to "#{current_user.username}", user_path(current_user) %></h2>
+  <% end %>
 <h2> <%= link_to "Users", users_path %></h2>
 <p><%= will_paginate @article %><p>
 <%@article.each do |it|%>
@@ -12,4 +15,11 @@
 
 <%= link_to "New Article", new_article_path %>
 <br>
-<%= link_to "Sign up!", signup_path %>
+
+
+<% if logged_in? %>
+<%= link_to "Logout", logout_path, method: :delete %>
+  <%else %>
+  <%= link_to "Sign up!", signup_path %>
+  <%= link_to "Log in", login_path %>
+<% end %>
